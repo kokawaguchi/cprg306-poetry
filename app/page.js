@@ -42,7 +42,7 @@ export default function Page() {
         </div>
         <div className="py-6">
           <div className="container flex items-center justify-center px-4 md:px-6">
-            <div className="grid max-w-3xl gap-4 p-4 border border-gray-200 rounded-lg bg-white shadow-md md:p-10 md:gap-8 dark:border-gray-800 dark:bg-gray-950/90 dark:shadow-lg">
+            <div className="grid max-w-3xl gap-4 p-4 border border-gray-200 rounded-lg bg-white shadow-md md:p-10 md:gap-8 dark:border-gray-800 dark:bg-gray-950/90 dark:shadow-lg animate-bounce">
               <p>poems here</p>
             </div>
           </div>
