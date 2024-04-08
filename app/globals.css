@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+
+.text-placeholder {
+  color: darkorange;
+  font-style: italic;
+  font-size: small;
+}

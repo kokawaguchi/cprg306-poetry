@@ -1,50 +1,70 @@
-"use client";
+import React, { useState, useEffect } from "react";
+import { getPoems } from "./_services/poem-list-services";
 
 export default function PotentialPoem() {
+  const [poems, setPoems] = useState([]);
+
+  useEffect(() => {
+    // Fetch poems from Firestore when the component mounts
+    async function fetchPoems() {
+      try {
+        const poemsData = await getPoems();
+        setPoems(poemsData);
+      } catch (error) {
+        console.error("Error fetching poems: ", error);
+      }
+    }
+
+    fetchPoems();
+
+    // Clean up function
+    return () => {};
+  }, []); // Empty dependency array ensures this effect runs only once
+
   return (
     <section>
-      <div className="bg-orange-400  w-6/12 text-center">
-        Potential Poems (user posted poems firebase)
+      {/* Heading */}
+      <div className="md:px-1 bg-slate-300 rounded-md w-32">
+        <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-500 mb-1">
+          Potential Poems
+        </h1>
       </div>
-      {/* Dropdown div Begins */}
-      <div className="flex flex-row items-center w-11/12">
-        {/* Dropdown for Author */}
-        <div className="relative mr-2 ">
-          <select
-            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 
-                    px-20 pr-20 rounded leading-tight focus:border-gray-500 w-66"
-          >
-            <option>Shakespeare</option>
-            <option>Poetry Guy</option>
-            {/* TODO: API to retrieve all authors in db */}
-          </select>
-        </div>
-
-        {/* Dropdown for Title */}
+      {/* Top Row */}
+      <div className="flex flex-row items-center w-11/12 mb-1">
+        {/* Author Dropdown */}
         <div className="relative mr-2">
           <select
-            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 
-                  px-20 pr-20 rounded leading-tight focus:border-gray-500 w-96"
+            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 px-20 pr-20 rounded leading-tight
+             focus:border-gray-500 w-64 overflow-hidden"
           >
-            <option>Ko's Poem</option>
-            <option>A Short Title Made Even Extra Longer Right Here</option>
-            {/* TODO: API to retrieve all titles in db */}
+            <option>Author List</option>
+            {/* Map over the poems and render author names */}
+            {poems.map((poem) => (
+              <option key={poem.id}>{poem.name}</option>
+            ))}
           </select>
         </div>
-
-        {/* Search Button */}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded ">
+        {/* Poem Dropdown */}
+        <div className="relative mr-2">
+          <select
+            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 px-20 pr-20 rounded leading-tight 
+            focus:border-gray-500 w-96 overflow-hidden"
+          >
+            <option>Poem List</option>
+            {/* Map over the poems and render poem titles */}
+            {poems.map((poem) => (
+              <option key={poem.id}>{poem.poem}</option>
+            ))}
+          </select>
+        </div>
+        {/* Show Button */}
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded">
           Show
         </button>
       </div>
-      {/* Boxed area for API data */}
-      <div
-        className="border border-gray-200 rounded-lg bg-white shadow-md md:p-5
-              dark:shadow-lg mb-5 w-full text-blue-600  text-lg"
-      >
-        <p>User poem here</p>
-        <p>And Here</p>
-        <p> retrieved from firebase</p>
+      {/* Poem Box Area */}
+      <div className="border border-gray-200 rounded-lg bg-white shadow-md md:p-5 dark:shadow-lg mb-5 w-full text-red-600 text-lg">
+        <p className="text-placeholder">Retrieve user poems from firebase</p>
       </div>
     </section>
   );

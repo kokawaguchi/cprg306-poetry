@@ -3,8 +3,17 @@
 import PolishedPoem from "./polished";
 import PotentialPoem from "./potential";
 import PostPoems from "./post";
+import { useState, useEffect } from "react";
+import { getPoems, addPoem } from "./_services/poem-list-services";
 
 export default function Page() {
+  const [poems, setPoems] = useState([]);
+
+  async function handleAddPoem(poem) {
+    const id = await addPoem(poem);
+    setPoems((prevPoems) => [...prevPoems, { id, ...poem }]);
+  }
+
   return (
     <div className="flex flex-col min-h-screen ">
       <main>
@@ -21,7 +30,7 @@ export default function Page() {
         <div className=" justify-center grid w-full p-4 bg-yellow-200">
           <PolishedPoem />
           <PotentialPoem />
-          <PostPoems />
+          <PostPoems onAddPoem={handleAddPoem} />
         </div>
       </main>
       <footer
