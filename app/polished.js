@@ -62,6 +62,7 @@ export default function PolishedPoem() {
     setSelectedAuthor(selectedAuthor);
     setSelectedTitle("");
     setTitles([]);
+    setPoem("");
     if (selectedAuthor) {
       fetchTitlesByAuthor(selectedAuthor);
     }
@@ -81,7 +82,7 @@ export default function PolishedPoem() {
   return (
     <section>
       {/* Heading */}
-      <div className="md:px-2 bg-slate-300 rounded-md w-32 mb-1">
+      <div className="md:px-1 flex justify-center">
         <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-500">
           Polished Poems
         </h1>
@@ -140,8 +141,7 @@ export default function PolishedPoem() {
           <pre>{poem}</pre>
         ) : (
           <p className="text-placeholder">
-            To view poems from well-known authors, first select an author, then
-            a title, and finally click show to view here.
+            Recognized poems can be selected here.
           </p>
         )}
       </div>
