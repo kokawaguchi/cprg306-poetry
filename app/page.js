@@ -1,5 +1,4 @@
 "use client";
-
 import PolishedPoem from "./polished";
 import PotentialPoem from "./potential";
 import PostPoems from "./post";
