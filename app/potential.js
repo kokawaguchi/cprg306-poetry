@@ -53,20 +53,19 @@ export default function PotentialPoem({ poems }) {
   return (
     <section>
       {/* Heading */}
-      <div className="md:px-1 flex justify-center ">
-        <div className="md:px-1  mb-1 text-md  md:underline ">
-          <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-900 ">
+      <div className="px-4 md:px-1 flex justify-center">
+        <div className="px-1 mb-1 text-md  md:text-lg">
+          <h1 className="font-bold tracking-tighter text-cyan-900">
             potential poems
           </h1>
         </div>
       </div>
       {/* Top Row */}
-      <div className="flex flex-row items-center w-11/12 mb-1">
+      <div className="flex justify-center mb-1 ">
         {/* Author Dropdown */}
-        <div className="relative mr-2">
+        <div className="relative flex-initial w-80 justify-start md:mr-2 mb-2 md:mb-0">
           <select
-            className="block appearance-none  text-black py-3 px-20 pr-20 rounded leading-tight
-              w-64 overflow-hidden"
+            className="block appearance-none text-black py-3 px-20 rounded leading-tight w-full overflow-hidden"
             onChange={handleAuthorChange}
             value={selectedAuthor}
             style={{ backgroundColor: "#eb9486" }}
@@ -81,10 +80,9 @@ export default function PotentialPoem({ poems }) {
           </select>
         </div>
         {/* Poem Dropdown */}
-        <div className="relative mr-2">
+        <div className="relative flex-initial w-96 justify-start md:mr-2 mb-2 md:mb-0">
           <select
-            className="block appearance-none text-black py-3 px-20 pr-20 rounded leading-tight 
-             w-96 overflow-hidden"
+            className="block appearance-none text-black py-3 px-20 rounded leading-tight w-full overflow-hidden"
             onChange={handleTitleChange}
             value={selectedTitle}
             style={{ backgroundColor: "#eb9486" }}
@@ -98,7 +96,7 @@ export default function PotentialPoem({ poems }) {
         </div>
         {/* Show Button */}
         <button
-          className=" text-black font-bold py-3 px-5 rounded"
+          className="relative flex-initial w-20 justify-start  mb-2 md:mb-0 text-black rounded-lg font-bold"
           onClick={handleShowClick}
           style={{ backgroundColor: "#cae7b9" }}
         >
@@ -106,7 +104,7 @@ export default function PotentialPoem({ poems }) {
         </button>
       </div>
       {/* Poem Box Area */}
-      <div className="border border-gray-200 rounded-lg bg-white shadow-md md:p-5 dark:shadow-lg mb-5 w-full text-red-600 text-lg">
+      <div className="relative flex-initial border border-gray-200 rounded-lg bg-white shadow-md p-4 mb-5 text-red-600 text-lg">
         {/* Render the selected poem inside the poem box area */}
         {selectedPoem ? (
           <p>{selectedPoem}</p>
