@@ -136,14 +136,20 @@ export default function PolishedPoem() {
         </button>
       </div>
       {/* Poem Box Area */}
-      <div className="border border-gray-200 rounded-lg bg-white shadow-md p-4 mb-5 text-red-600 text-lg relative flex-1">
-        {isLoadingPoem ? (
-          <p>Loading poem...</p>
-        ) : poem ? (
-          <pre>{poem}</pre>
-        ) : (
-          <p className="text-placeholder">Famous poems can be selected here.</p>
-        )}
+      <div className="flex-1">
+        <div className="max-w-lg mx-auto">
+          <div className="border border-gray-200 rounded-lg bg-white shadow-md p-4 mb-5 text-red-600 text-lg relative">
+            {isLoadingPoem ? (
+              <p>Loading poem...</p>
+            ) : poem ? (
+              <pre>{poem}</pre>
+            ) : (
+              <p className="text-placeholder">
+                Famous poems can be selected here.
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
