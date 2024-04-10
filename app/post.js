@@ -24,9 +24,9 @@ export default function PostPoem({ onAddPoem, onPoemAdded }) {
 
   return (
     <section className="flex flex-col items-left ">
-      <div className="md:px-1 flex justify-center ">
-        <div className="md:px-1 mb-1 text-md md:underline ">
-          <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-900">
+      <div className="px-4 md:px-1 flex justify-center">
+        <div className="px-1 mb-1 text-md md:text-lg">
+          <h1 className="font-bold tracking-tighter text-cyan-900">
             post poems
           </h1>
         </div>
