@@ -43,9 +43,9 @@ export default function Page() {
           style={{ backgroundColor: "#eb9486" }}
         >
           {/* Title Highlight */}
-          <div className="md:px-7 bg-white">
-            <h1 className="font-bold tracking-tighter text-base text-black">
-              POPPING POEMS
+          <div className="md:px-7 md:underline">
+            <h1 className="font-bold tracking-tighter text-4xl text-cyan-900">
+              popping poems
             </h1>
           </div>
         </div>
@@ -61,8 +61,7 @@ export default function Page() {
         </div>
       </main>
       <footer
-        className="grid w-full text-sm text-center lg:py-6 dark:text-gray-900
-      fixed bottom-0"
+        className="grid w-full text-sm text-center p-2 fixed bottom-0"
         style={{ backgroundColor: "#eb9486" }}
       >
         <div>

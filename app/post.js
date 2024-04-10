@@ -24,10 +24,10 @@ export default function PostPoem({ onAddPoem, onPoemAdded }) {
 
   return (
     <section className="flex flex-col items-left ">
-      <div className="md:px-1 flex justify-left">
-        <div className="md:px-1 bg-white mb-1 text-sm">
-          <h1 className="font-bold tracking-tighter lg:text-1xl text-black">
-            Post Poems
+      <div className="md:px-1 flex justify-center ">
+        <div className="md:px-1 mb-1 text-md md:underline ">
+          <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-900">
+            post poems
           </h1>
         </div>
       </div>
@@ -73,9 +73,9 @@ export default function PostPoem({ onAddPoem, onPoemAdded }) {
         <button
           className=" text-black font-bold py-3 px-10 rounded w-full "
           type="submit"
-          style={{ backgroundColor: "#cae7b9" }}
+          style={{ backgroundColor: "#eb9486" }}
         >
-          Post
+          submit
         </button>
       </form>
     </section>

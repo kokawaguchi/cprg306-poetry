@@ -53,10 +53,10 @@ export default function PotentialPoem({ poems }) {
   return (
     <section>
       {/* Heading */}
-      <div className="md:px-1 flex justify-left">
-        <div className="md:px-1 bg-white mb-1 text-sm">
-          <h1 className="font-bold tracking-tighter lg:text-1xl text-black">
-            Potential Poems
+      <div className="md:px-1 flex justify-center ">
+        <div className="md:px-1  mb-1 text-md  md:underline ">
+          <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-900 ">
+            potential poems
           </h1>
         </div>
       </div>
@@ -71,7 +71,7 @@ export default function PotentialPoem({ poems }) {
             value={selectedAuthor}
             style={{ backgroundColor: "#eb9486" }}
           >
-            <option value="">Author List</option>
+            <option value="">author</option>
             {/* Map over the unique author names */}
             {Array.from(new Set(poems.map((poem) => poem.name))).map(
               (author) => (
@@ -89,7 +89,7 @@ export default function PotentialPoem({ poems }) {
             value={selectedTitle}
             style={{ backgroundColor: "#eb9486" }}
           >
-            <option value="">Poem List</option>
+            <option value="">poems</option>
             {/* Map over the filtered poems and render poem titles */}
             {filteredPoems.map((poem) => (
               <option key={poem.id}>{poem.title}</option>
@@ -102,7 +102,7 @@ export default function PotentialPoem({ poems }) {
           onClick={handleShowClick}
           style={{ backgroundColor: "#cae7b9" }}
         >
-          Read
+          view
         </button>
       </div>
       {/* Poem Box Area */}
