@@ -136,7 +136,7 @@ export default function PolishedPoem() {
         </button>
       </div>
       {/* Poem Box Area */}
-      <div className="border border-gray-200 rounded-lg bg-white shadow-md p-4 mb-5 text-red-600 text-lg flex-1">
+      <div className="border border-gray-200 rounded-lg bg-white shadow-md p-4 mb-5 text-red-600 text-lg relative flex-1">
         {isLoadingPoem ? (
           <p>Loading poem...</p>
         ) : poem ? (
