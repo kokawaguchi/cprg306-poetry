@@ -8,10 +8,11 @@ import { getPoems, addPoem } from "./_services/poem-list-services";
 export default function Page() {
   const [poems, setPoems] = useState([]);
 
+  // render - get poems from firebase
   useEffect(() => {
     fetchPoems();
-  }, []); // Fetch poems data when component mounts
-
+  }, []);
+  // getPoems is a function defined in poem-list-services
   const fetchPoems = async () => {
     try {
       const poemsData = await getPoems();
@@ -20,7 +21,7 @@ export default function Page() {
       console.error("Error fetching poems: ", error);
     }
   };
-
+  // creates a new array with the added poem
   async function handleAddPoem(poem) {
     const id = await addPoem(poem);
     setPoems((prevPoems) => [...prevPoems, { id, ...poem }]);
@@ -31,31 +32,42 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-yellow-200">
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ backgroundColor: "#f3de8a" }}
+    >
       <main>
         {/* Title */}
-        <div className="flex items-center justify-center w-full py-5 bg-pink-300">
+        <div
+          className="flex items-center justify-center w-full py-4"
+          style={{ backgroundColor: "#eb9486" }}
+        >
           {/* Title Highlight */}
-          <div className="md:px-7">
-            <h1 className="font-bold tracking-tighter lg:text-5xl">
-              Popping Poems
+          <div className="md:px-7 bg-white">
+            <h1 className="font-bold tracking-tighter text-base text-black">
+              POPPING POEMS
             </h1>
           </div>
         </div>
 
-        <div className=" justify-center grid w-full p-4 bg-yellow-200">
+        <div
+          className=" justify-center grid w-full p-4"
+          style={{ backgroundColor: "#f3de8a" }}
+        >
           <PolishedPoem />
-          <PotentialPoem poems={poems} /> {/* Pass poems as a prop */}
+          <PotentialPoem poems={poems} />
+          {/* when a poem is added, this should refresh the potential poem list*/}
           <PostPoems onAddPoem={handleAddPoem} onPoemAdded={refreshData} />
         </div>
       </main>
       <footer
-        className="grid w-full text-sm text-center lg:py-6 dark:bg-pink-300 dark:text-gray-900 dark:rounded-t-3xl
+        className="grid w-full text-sm text-center lg:py-6 dark:text-gray-900
       fixed bottom-0"
+        style={{ backgroundColor: "#eb9486" }}
       >
         <div>
-          <p className="text-white lg:text-xl tracking-tighter">
-            © 2024 Popping Poetry
+          <p className="text-black lg:text-xl tracking-tighter">
+            © 2024 Popping Poems
           </p>
         </div>
       </footer>

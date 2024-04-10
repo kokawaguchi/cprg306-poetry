@@ -24,10 +24,12 @@ export default function PostPoem({ onAddPoem, onPoemAdded }) {
 
   return (
     <section className="flex flex-col items-left ">
-      <div className="md:px-1 flex justify-center">
-        <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-500">
-          Post Poems
-        </h1>
+      <div className="md:px-1 flex justify-left">
+        <div className="md:px-1 bg-white mb-1 text-sm">
+          <h1 className="font-bold tracking-tighter lg:text-1xl text-black">
+            Post Poems
+          </h1>
+        </div>
       </div>
       {/* Area to write user poem begins */}
       <form onSubmit={handleSubmit} className="">
@@ -69,10 +71,11 @@ export default function PostPoem({ onAddPoem, onPoemAdded }) {
         {error && <p className="text-red-500">{error}</p>}
         {/* Post Button */}
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded w-full "
+          className=" text-black font-bold py-3 px-10 rounded w-full "
           type="submit"
+          style={{ backgroundColor: "#cae7b9" }}
         >
-          Post Your Poem
+          Post
         </button>
       </form>
     </section>

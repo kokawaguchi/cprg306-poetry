@@ -10,6 +10,7 @@ export default function PolishedPoem() {
   const [poem, setPoem] = useState("");
   const [isLoadingPoem, setIsLoadingPoem] = useState(false);
 
+  // render - load all artists from poetry db
   useEffect(() => {
     const fetchAuthors = async () => {
       try {
@@ -22,7 +23,6 @@ export default function PolishedPoem() {
         setIsLoadingAuthors(false);
       }
     };
-
     fetchAuthors();
   }, []);
 
@@ -55,6 +55,7 @@ export default function PolishedPoem() {
     }
   };
 
+  // when a new author is selected, this function so clear all fields
   const handleAuthorChange = (event) => {
     const selectedAuthor = event.target.value;
     setSelectedAuthor(selectedAuthor);
@@ -80,20 +81,23 @@ export default function PolishedPoem() {
   return (
     <section>
       {/* Heading */}
-      <div className="md:px-1 flex justify-center">
-        <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-500">
-          Polished Poems
-        </h1>
+      <div className="md:px-1 flex justify-left">
+        <div className="md:px-1 bg-white mb-1 text-sm">
+          <h1 className="font-bold tracking-tighter text-black">
+            Polished Poems
+          </h1>
+        </div>
       </div>
       {/* Top Row */}
       <div className="flex flex-row items-center w-11/12 mb-1">
         {/* Author Dropdown */}
         <div className="relative mr-2">
           <select
-            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 px-20 pr-20 rounded leading-tight
-             focus:border-gray-500 w-64 overflow-hidden"
+            className="block appearance-none text-black py-3 px-20 pr-20 rounded leading-tight
+              w-64 overflow-hidden"
             onChange={handleAuthorChange}
             value={selectedAuthor}
+            style={{ backgroundColor: "#eb9486" }}
           >
             <option value="">Author List</option>
             {authors.map((author, index) => (
@@ -106,10 +110,11 @@ export default function PolishedPoem() {
         {/* Poem Dropdown */}
         <div className="relative mr-2">
           <select
-            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 px-20 pr-20 rounded leading-tight 
-            focus:border-gray-500 w-96 overflow-hidden"
+            className="block appearance-none text-black py-3 px-20 pr-20 rounded leading-tight 
+             w-96 overflow-hidden"
             onChange={handleTitleChange}
             value={selectedTitle}
+            style={{ backgroundColor: "#eb9486" }}
           >
             <option value="">Poem List</option>
             {isLoadingTitles ? (
@@ -125,10 +130,11 @@ export default function PolishedPoem() {
         </div>
         {/* Show Button */}
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-3 px-5 rounded"
           onClick={handleShowClick}
+          style={{ backgroundColor: "#cae7b9" }}
         >
-          Show
+          Read
         </button>
       </div>
       {/* Poem Box Area */}
@@ -138,9 +144,7 @@ export default function PolishedPoem() {
         ) : poem ? (
           <pre>{poem}</pre>
         ) : (
-          <p className="text-placeholder">
-            Recognized poems can be selected here.
-          </p>
+          <p className="text-placeholder">Famous poems can be selected here.</p>
         )}
       </div>
     </section>

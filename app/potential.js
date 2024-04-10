@@ -53,20 +53,23 @@ export default function PotentialPoem({ poems }) {
   return (
     <section>
       {/* Heading */}
-      <div className="md:px-1 flex justify-center">
-        <h1 className="font-bold tracking-tighter lg:text-1xl text-cyan-500">
-          Potential Poems
-        </h1>
+      <div className="md:px-1 flex justify-left">
+        <div className="md:px-1 bg-white mb-1 text-sm">
+          <h1 className="font-bold tracking-tighter lg:text-1xl text-black">
+            Potential Poems
+          </h1>
+        </div>
       </div>
       {/* Top Row */}
       <div className="flex flex-row items-center w-11/12 mb-1">
         {/* Author Dropdown */}
         <div className="relative mr-2">
           <select
-            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 px-20 pr-20 rounded leading-tight
-             focus:border-gray-500 w-64 overflow-hidden"
+            className="block appearance-none  text-black py-3 px-20 pr-20 rounded leading-tight
+              w-64 overflow-hidden"
             onChange={handleAuthorChange}
             value={selectedAuthor}
+            style={{ backgroundColor: "#eb9486" }}
           >
             <option value="">Author List</option>
             {/* Map over the unique author names */}
@@ -80,10 +83,11 @@ export default function PotentialPoem({ poems }) {
         {/* Poem Dropdown */}
         <div className="relative mr-2">
           <select
-            className="block appearance-none bg-cyan-400 border border-gray-300 text-white py-3 px-20 pr-20 rounded leading-tight 
-            focus:border-gray-500 w-96 overflow-hidden"
+            className="block appearance-none text-black py-3 px-20 pr-20 rounded leading-tight 
+             w-96 overflow-hidden"
             onChange={handleTitleChange}
             value={selectedTitle}
+            style={{ backgroundColor: "#eb9486" }}
           >
             <option value="">Poem List</option>
             {/* Map over the filtered poems and render poem titles */}
@@ -94,10 +98,11 @@ export default function PotentialPoem({ poems }) {
         </div>
         {/* Show Button */}
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-5 rounded"
+          className=" text-black font-bold py-3 px-5 rounded"
           onClick={handleShowClick}
+          style={{ backgroundColor: "#cae7b9" }}
         >
-          Show
+          Read
         </button>
       </div>
       {/* Poem Box Area */}
