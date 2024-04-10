@@ -110,7 +110,7 @@ export default function PotentialPoem({ poems }) {
           <p>{selectedPoem}</p>
         ) : (
           <p className="text-placeholder">
-            User submitted poems can be selected here.
+            User submitted poems can be viewed here.
           </p>
         )}
       </div>

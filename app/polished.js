@@ -142,7 +142,7 @@ export default function PolishedPoem() {
         ) : poem ? (
           <pre>{poem}</pre>
         ) : (
-          <p className="text-placeholder">Famous poems can be selected here.</p>
+          <p className="text-placeholder">Famous poems can be viewed here.</p>
         )}
       </div>
     </section>
