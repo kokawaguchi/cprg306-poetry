@@ -43,7 +43,7 @@ export default function Page() {
           style={{ backgroundColor: "#eb9486" }}
         >
           {/* Title Highlight */}
-          <div className="md:px-7 md:underline">
+          <div className=" md:underline">
             <h1 className="font-bold tracking-tighter text-4xl text-cyan-900">
               popping poems
             </h1>

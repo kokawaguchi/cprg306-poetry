@@ -81,20 +81,19 @@ export default function PolishedPoem() {
   return (
     <section>
       {/* Heading */}
-      <div className="md:px-1 flex justify-center">
-        <div className="md:px-1  mb-1 text-md  md:underline ">
+      <div className="px-4 md:px-1 flex justify-center">
+        <div className="px-1 mb-1 text-md md:text-lg">
           <h1 className="font-bold tracking-tighter text-cyan-900">
             polished poems
           </h1>
         </div>
       </div>
       {/* Top Row */}
-      <div className="flex flex-row items-center w-11/12 mb-1">
+      <div className="flex flex-col md:flex-row items-stretch mb-1">
         {/* Author Dropdown */}
-        <div className="relative mr-2">
+        <div className="relative flex-1 mb-2 md:mr-2 md:mb-0">
           <select
-            className="block appearance-none text-black py-3 px-20 pr-20 rounded leading-tight
-              w-64 overflow-hidden"
+            className="block appearance-none text-black py-3 px-4 rounded leading-tight w-full overflow-hidden"
             onChange={handleAuthorChange}
             value={selectedAuthor}
             style={{ backgroundColor: "#eb9486" }}
@@ -108,10 +107,9 @@ export default function PolishedPoem() {
           </select>
         </div>
         {/* Poem Dropdown */}
-        <div className="relative mr-2">
+        <div className="relative flex-1 mb-2 md:mr-2 md:mb-0">
           <select
-            className="block appearance-none text-black py-3 px-20 pr-20 rounded leading-tight 
-             w-96 overflow-hidden"
+            className="block appearance-none text-black py-3 px-4 rounded leading-tight w-full overflow-hidden"
             onChange={handleTitleChange}
             value={selectedTitle}
             style={{ backgroundColor: "#eb9486" }}
@@ -130,7 +128,7 @@ export default function PolishedPoem() {
         </div>
         {/* Show Button */}
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-3 px-5 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-3 px-5 rounded self-stretch md:ml-2"
           onClick={handleShowClick}
           style={{ backgroundColor: "#cae7b9" }}
         >
@@ -138,7 +136,7 @@ export default function PolishedPoem() {
         </button>
       </div>
       {/* Poem Box Area */}
-      <div className="border border-gray-200 rounded-lg bg-white shadow-md md:p-5 dark:shadow-lg mb-5 w-full text-red-600 text-lg">
+      <div className="border border-gray-200 rounded-lg bg-white shadow-md p-4 mb-5 text-red-600 text-lg flex-1">
         {isLoadingPoem ? (
           <p>Loading poem...</p>
         ) : poem ? (
